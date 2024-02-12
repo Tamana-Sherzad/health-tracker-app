@@ -32,14 +32,11 @@ public class HealthIssueControllerIntegrationTest {
 
     @Test
     public void testGetAllHealthIssues() throws Exception {
-        // Mock data
-        HealthIssue issue1 = new HealthIssue();
-        issue1.setId("1");
-        issue1.setName("Headache");
 
-        HealthIssue issue2 = new HealthIssue();
-        issue2.setId("2");
-        issue2.setName("Fever");
+        // Mock data
+        HealthIssue issue1 = new HealthIssue("1", "Headache");
+        HealthIssue issue2 = new HealthIssue("2","Fever");
+
 
         when(healthIssueService.getAllHealthIssues()).thenReturn(Arrays.asList(issue1, issue2));
 
@@ -49,10 +46,7 @@ public class HealthIssueControllerIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 // Assert response body if needed
-                .andExpect(jsonPath("$[0].id").value("1"))
-                .andExpect(jsonPath("$[0].name").value("Headache"))
-                .andExpect(jsonPath("$[1].id").value("2"))
-                .andExpect(jsonPath("$[1].name").value("Fever"));
+                .andExpect(content().json("[{\"id\":\"1\",\"name\":\"Headache\"},{\"id\":\"2\",\"name\":\"Fever\"}]"));
     }
 
     @Test
