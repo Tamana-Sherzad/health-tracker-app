@@ -15,10 +15,10 @@ public class HealthIssueController {
     private HealthIssueService healthIssueService;
 
     @GetMapping("/health-issues")
-    public ResponseEntity<List<HealthIssue>> getUserHealthIssues() {
-        List<HealthIssue> healthIssues = healthIssueService.getAllHealthIssues();
-        return ResponseEntity.ok(healthIssues);
+    public List<HealthIssue> getUserHealthIssues() {
+        return healthIssueService.getAllHealthIssues();
     }
+
 
     @PostMapping("/add-health-issue")
     public ResponseEntity<HealthIssue> addHealthIssue(@RequestBody HealthIssue issue) {
