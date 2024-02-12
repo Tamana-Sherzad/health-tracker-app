@@ -13,4 +13,8 @@ public class HealthIssue {
 
     private String name;
 
+    public HealthIssue(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

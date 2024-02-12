@@ -25,13 +25,9 @@ class HealthIssueServiceUnitTest {
     @Test
     void testGetAllHealthIssues() {
         // Create HealthIssue instances
-        HealthIssue issue1 = new HealthIssue();
-        issue1.setId("1");
-        issue1.setName("Headache");
+        HealthIssue issue1 = new HealthIssue("1","Headache");
+        HealthIssue issue2 = new HealthIssue("2","Fever");
 
-        HealthIssue issue2 = new HealthIssue();
-        issue2.setId("2");
-        issue2.setName("Fever");
 
         // Mock the HealthIssueRepository
         when(healthIssueRepository.findAll()).thenReturn(Arrays.asList(issue1, issue2));
@@ -48,9 +44,7 @@ class HealthIssueServiceUnitTest {
     @Test
     void testAddHealthIssue() {
         // Create a HealthIssue instance
-        HealthIssue issue = new HealthIssue();
-        issue.setId("1");
-        issue.setName("Headache");
+        HealthIssue issue = new HealthIssue("1","Headache");
 
         // Mock the behavior of save() method in HealthIssueRepository
         when(healthIssueRepository.save(issue)).thenReturn(issue);
