@@ -34,8 +34,13 @@ public class HealthIssueControllerIntegrationTest {
     public void testGetAllHealthIssues() throws Exception {
 
         // Mock data
-        HealthIssue issue1 = new HealthIssue("1", "Headache");
-        HealthIssue issue2 = new HealthIssue("2","Fever");
+        HealthIssue issue1 = new HealthIssue();
+        issue1.setId("1");
+        issue1.setName("Headache");
+
+        HealthIssue issue2 = new HealthIssue();
+        issue2.setId("2");
+        issue2.setName("Fever");
 
 
         when(healthIssueService.getAllHealthIssues()).thenReturn(Arrays.asList(issue1, issue2));
