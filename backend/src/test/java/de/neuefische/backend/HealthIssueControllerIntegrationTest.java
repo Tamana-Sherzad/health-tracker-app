@@ -62,9 +62,8 @@ public class HealthIssueControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                // Assert response body if needed
-                .andExpect(jsonPath("$.id").value("3"))
-                .andExpect(jsonPath("$.name").value("Cough"));
+                // Assert response body
+                .andExpect(content().json("{\"id\":\"3\",\"name\":\"Cough\"}"));
     }
 
     @Test
