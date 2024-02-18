@@ -15,7 +15,7 @@ public class HealthIssueController {
     private HealthIssueService healthIssueService;
 
     @GetMapping("/health-issues")
-    public List<HealthIssue> getUserHealthIssues() {
+    public List<HealthIssue> getAllHealthIssues() {
         return healthIssueService.getAllHealthIssues();
     }
 
