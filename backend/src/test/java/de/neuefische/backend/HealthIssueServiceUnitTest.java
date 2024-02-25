@@ -10,6 +10,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -24,10 +26,11 @@ class HealthIssueServiceUnitTest {
 
     @Test
     void testGetAllHealthIssues() {
-        // Create HealthIssue instances
-        HealthIssue issue1 = new HealthIssue("1","Headache");
-        HealthIssue issue2 = new HealthIssue("2","Fever");
-
+        // Create a HealthIssue instance
+        UUID uuid1 = UUID.randomUUID();
+        UUID uuid2 = UUID.randomUUID();
+        HealthIssue issue1 = new HealthIssue(uuid1,"Headache");
+        HealthIssue issue2 = new HealthIssue(uuid2,"Fever");
 
         // Mock the HealthIssueRepository
         when(healthIssueRepository.findAll()).thenReturn(Arrays.asList(issue1, issue2));
@@ -44,7 +47,8 @@ class HealthIssueServiceUnitTest {
     @Test
     void testAddHealthIssue() {
         // Create a HealthIssue instance
-        HealthIssue issue = new HealthIssue("1","Headache");
+        UUID uuid = UUID.randomUUID();
+        HealthIssue issue = new HealthIssue(uuid,"Headache");
 
         // Mock the behavior of save() method in HealthIssueRepository
         when(healthIssueRepository.save(issue)).thenReturn(issue);
@@ -58,14 +62,14 @@ class HealthIssueServiceUnitTest {
 
     @Test
     void testRemoveHealthIssue() {
-        // Define the issueId to be removed
-        String issueId = "1";
+        // Define the name to be removed
+        String name = "Fever";
 
         // Call the service method to remove the health issue
-        healthIssueService.removeHealthIssue(issueId);
+        healthIssueService.removeHealthIssue(name);
 
         // Verify that the deleteById method of the repository is called with the correct issueId
-        verify(healthIssueRepository).deleteById(issueId);
+        verify(healthIssueRepository).deleteByName(name);
     }
 
 }

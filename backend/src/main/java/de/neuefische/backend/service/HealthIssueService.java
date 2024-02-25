@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class HealthIssueService {
 
-    private final HealthIssueRepository healthIssueRepository; // Declare the field
+    private final HealthIssueRepository healthIssueRepository;
 
     @Autowired
     public HealthIssueService(HealthIssueRepository healthIssueRepository) {
@@ -25,7 +25,5 @@ public class HealthIssueService {
         return healthIssueRepository.save(issue);
     }
 
-    public void removeHealthIssue(String issueId) {
-        healthIssueRepository.deleteById(issueId);
-    }
+    public void removeHealthIssue(String name) { healthIssueRepository.deleteByName(name); }
 }
