@@ -10,7 +10,8 @@ import java.util.List;
 @Service
 public class HealthIssueService {
 
-    private final HealthIssueRepository healthIssueRepository; // Declare the field
+
+    private final HealthIssueRepository healthIssueRepository;
 
     @Autowired
     public HealthIssueService(HealthIssueRepository healthIssueRepository) {

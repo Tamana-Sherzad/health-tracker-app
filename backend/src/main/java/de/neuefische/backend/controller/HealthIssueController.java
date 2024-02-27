@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping("/api/health-tracker")
 public class HealthIssueController {
 
+    @Autowired
     private HealthIssueService healthIssueService;
 
     @GetMapping("/health-issues")

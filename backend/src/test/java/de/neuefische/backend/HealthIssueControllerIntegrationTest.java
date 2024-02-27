@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class HealthIssueControllerIntegrationTest {
+public class HealthIssueControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -31,7 +31,7 @@ class HealthIssueControllerIntegrationTest {
     private ObjectMapper objectMapper;
 
     @Test
-     void testGetAllHealthIssues() throws Exception {
+     public void testGetAllHealthIssues() throws Exception {
 
         // Mock data
         HealthIssue issue1 = new HealthIssue("1","Headache");
@@ -51,7 +51,7 @@ class HealthIssueControllerIntegrationTest {
     }
 
     @Test
-     void testAddHealthIssue() throws Exception {
+     public void testAddHealthIssue() throws Exception {
         // Mock data
         HealthIssue newIssue = new HealthIssue("3","Cough");
         when(healthIssueService.addHealthIssue(any())).thenReturn(newIssue);
@@ -67,7 +67,7 @@ class HealthIssueControllerIntegrationTest {
     }
 
     @Test
-    void testRemoveHealthIssue() throws Exception {
+    public void testRemoveHealthIssue() throws Exception {
         // Perform DELETE request
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/health-tracker/remove-health-issue/1")
                         .contentType(MediaType.APPLICATION_JSON))
