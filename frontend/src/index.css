@@ -1,68 +1,205 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Allgemeine Styles */
 body {
-  margin: 0;
+  background-image: url(../public/background-health-sync.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Arial Rounded MT Bold", serif;
+  color: darkturquoise;
+}
+
+/* Container */
+.container {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+  text-align: center;
+  padding: 40px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Dashboard */
+.dashboard {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 40px;
+  width: 85%;
+  margin: 0 60px 60px; /* Abstand oben, links/rechts, unten */
 }
 
+
+/* App-Name */
+.app-name {
+  margin-bottom: 10px;
+  font-size: 4rem;
+}
+
+/* Welcome-Text */
+/*.welcome-text {
+  width: 900px;
+  height: 30vh;
+  font-size: 18px;
+  margin-bottom: 140px;
+  text-align: center;
+}
+
+/* Buttons */
 button {
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  background-color: white;
+  color: darkturquoise;
+  border: none;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+button:hover {
+  background-color: turquoise;
+}
+
+.mood-button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mood-button.selected {
+  background-color: white;
+}
+
+
+/* Diary-Log */
+.diary-log {
+  background-color: transparent;
+}
+
+.diary-input {
+  color: darkturquoise;
+  font-family: "Arial Rounded MT Bold", serif;
+  height: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+
+}
+
+.diary-input::placeholder {
+  color: darkturquoise;
+}
+
+.diary-log button{
+  font-family: "Arial Rounded MT Bold", serif;
+  font-size: 0.8rem;
+  padding: 8px;
+}
+
+
+/* Health Issues */
+.my-health-issues {
+  width: 35%;
+  padding: 1px;
+  border-radius: 8px;
+}
+
+.health-issues-input {
+  color: darkturquoise;
+  font-family: "Arial Rounded MT Bold", serif;
+  width: 85%; ;
+  height: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.health-issues-input:focus,
+.diary-input:focus {
+  outline: none;
+  border-color: turquoise;
+  box-shadow: 0 0 5px turquoise;
+}
+
+.health-issue {
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.health-issue.selected {
+  background-color: white;
+  flex-direction: row;
+}
+
+.health-issue button{
+  font-family: "Arial Rounded MT Bold", serif;
+  font-size: 0.8rem;
+  padding: 8px;
+  margin-left: 10px;
+}
+.add-button{
+  font-family: "Arial Rounded MT Bold", serif;
+  font-size: 1rem;
+  padding: 8px;
+  margin-left: 10px;
+}
+.remove-button{
+  font-family: "Arial Rounded MT Bold", serif;
+  font-size: 1rem;
+  padding: 8px;
+  margin-left: 10px;
+}
+.remove-icon{
+  width:20px ;
+  height: 20px;
+}
+.add-icon{
+  width:30px ;
+  height: 30px;
+}
+
+/* Welcome-Text */
+  .welcome-text {
+    max-width: 600px;
+    padding: 20px;
+    border: 1px;
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom:20px;
+    font-size: 18px;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+.welcome-message {
+  line-height: 1.6;
+}
+
+.welcome-message p {
+  margin-bottom: 10px;
+}
+
+.welcome-message ul {
+  margin-bottom: 20px;
+}
+
+.welcome-message li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+/* Hervorgehobene Styles */
+.health-issues-input::placeholder
+.diary-input::placeholder {
+  color: darkturquoise;
 }
