@@ -40,10 +40,9 @@ const HealthIssueList: React.FC<HealthIssueListProps> = ({ issues = [], selected
         }
     };
 
-    const handleRemoveIssue = async (name: string) => {
+    const handleRemoveIssue = async (id: string) => {
         try {
-            await axios.delete(`/api/health-tracker/remove-health-issue/${name}`, {
-                params: { name: name } // Use params instead of data for DELETE request
+            await axios.delete(`/api/health-tracker/remove-health-issue/${id}`, {
             });
             fetchHealthIssues(); // Fetch updated issues from backend
         } catch (error) {
@@ -65,7 +64,7 @@ const HealthIssueList: React.FC<HealthIssueListProps> = ({ issues = [], selected
                     key={issue.id}
                     name={issue.name}
                     onClick={() => handleIssueClick(issue.id)}
-                    onRemove={() => handleRemoveIssue(issue.name)} // Passing issue name to handleRemoveIssue
+                    onRemove={() => handleRemoveIssue(issue.id)} // Passing issue id to handleRemoveIssue
                     selected={selectedIssues.includes(issue.id)}
                 />
             ))}
