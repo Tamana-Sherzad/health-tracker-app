@@ -16,9 +16,6 @@ const WelcomeText: React.FC = () => {
                 </ul>
                 <p>We understand the demands of a busy lifestyle, yet we believe in the importance of staying connected
                     to your health journey.</p>
-                <p>With Health-Sync, you can stay on top of your health without added stress or time constraints.</p>
-                <p>Start your journey to optimal health today, because even in the busiest moments, your health
-                    matters!</p>
             </div>
         </div>
     );

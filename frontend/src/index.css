@@ -175,10 +175,8 @@ button:hover {
     max-width: 600px;
     padding: 20px;
     border: 1px;
-    border-radius: 8px;
-    background-color: white;
     margin-bottom:20px;
-    font-size: 18px;
+    font-size: 24px;
   }
 
 .welcome-message {
